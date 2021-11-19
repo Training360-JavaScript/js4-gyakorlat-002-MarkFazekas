@@ -19,12 +19,17 @@ const getCustomerData = () => customerData;
  * megfelelő hibaüzenetet a console.log segítségével.
  * @param {string} url a távoli erőforrás címe, ahonnan lekérjük az adatokat
  */
+const getCustomers = (url) =>
+    fetch(new Request(url))
+        .then(response => response.json())
+        .then(json => customerData = json)
+        .catch(e => console.log(`Error: ${url} is not found!`))
 
 
 /**
  * TODO: exportáld ki helyesen a getCustomers függvényt!
  */
 export {
-    
+    getCustomers,
     getCustomerData,
 }
